@@ -13,6 +13,9 @@
     <!-- Error messages-->
     <string name="detail_error_message">Sandwich data not available</string>
 
+    <!-- Sandwich feature not specified -->
+    <string name="no_value">*Not available*</string>
+
     <string-array name="sandwich_names">
         <item>Ham and cheese sandwich</item>
         <item>Bosna</item>
