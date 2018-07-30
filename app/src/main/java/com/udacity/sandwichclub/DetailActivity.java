@@ -92,17 +92,16 @@ public class DetailActivity extends AppCompatActivity {
     }
 
     /* Converts List to String of items separated with commas */
-    private String listToString(List<String> items){
-        String result = "";
+    private String listToString(List<String> items) {
+        String listStr = "";
 
-        StringBuilder t = new StringBuilder();
-        for(int i=0; i <= items.size()-1; i++) {
-            t.append(items.get(i));
-            if(i != items.size()-1)
-                t.append(", ");
+        StringBuilder listBuilder = new StringBuilder();
+        for (int i=0; i<=items.size()-1; i++) {
+            listBuilder.append(items.get(i));
+            if (i !=items.size()-1) listBuilder.append(", ");
         }
-        result = t.toString();
+        listStr = listBuilder.toString();
 
-        return result;
+        return listStr;
     }
 }
