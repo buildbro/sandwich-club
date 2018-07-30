@@ -50,8 +50,8 @@ public class JsonUtils {
     static private List<String> jsonToList(JSONArray jsonArray) throws JSONException {
         List<String> result = new ArrayList<>();
 
-        if ( jsonArray != null){
-            for (int i=0; i< jsonArray.length(); i++){
+        if (jsonArray != null) {
+            for (int i=0; i<jsonArray.length(); i++) {
                 result.add(jsonArray.getString(i));
             }
         }
