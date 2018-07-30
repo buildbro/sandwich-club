@@ -19,30 +19,23 @@ public class JsonUtils {
             return null;
         }
 
-        final String nameField = "name";
-        final String mainNameField = "mainName";
-        final String imageField = "image";
-        final String alsoKnownAsField = "alsoKnownAs";
-        final String placeOfOriginField = "placeOfOrigin";
-        final String descriptionField = "description";
-        final String ingredientsField = "ingredients";
-
         try{
-            Sandwich sandwich = new Sandwich();
 
             JSONObject jsonObject = new JSONObject(json);
 
-            JSONObject nameObject = jsonObject.getJSONObject(nameField);
-            sandwich.setMainName(nameObject.getString(mainNameField));
+            JSONObject nameJsonObject = jsonObject.getJSONObject("name");
 
-            sandwich.setImage(jsonObject.getString(imageField));
+            Sandwich sandwich = new Sandwich();
+            sandwich.setMainName(nameJsonObject.getString("mainName"));
 
-            JSONArray alsoKnownAsNamesArray = nameObject.getJSONArray(alsoKnownAsField);
+            sandwich.setImage(jsonObject.getString("image"));
+
+            JSONArray alsoKnownAsNamesArray = nameJsonObject.getJSONArray("alsoKnownAs");
             sandwich.setAlsoKnownAs(jsonToList(alsoKnownAsNamesArray));
-            sandwich.setPlaceOfOrigin(jsonObject.getString(placeOfOriginField));
-            sandwich.setDescription(jsonObject.getString(descriptionField));
+            sandwich.setPlaceOfOrigin(jsonObject.getString("placeOfOrigin"));
+            sandwich.setDescription(jsonObject.getString("description"));
 
-            JSONArray ingredientsArray = jsonObject.getJSONArray(ingredientsField);
+            JSONArray ingredientsArray = jsonObject.getJSONArray("ingredients");
             sandwich.setIngredients(jsonToList(ingredientsArray));
 
             return sandwich;
